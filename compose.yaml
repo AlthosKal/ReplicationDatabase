@@ -1,11 +1,11 @@
 services:
   postgres-master:
     image: postgres:latest
-    container_name: MasterKuenteCO
+    container_name: Master
     environment:
-      POSTGRES_USER: master
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: KuenteCO
+      POSTGRES_DB: test
     volumes:
       - postgres-master-data:/var/lib/postgresql/data
     ports:
@@ -15,11 +15,11 @@ services:
 
   postgres-replica:
     image: postgres:latest
-    container_name: SlaveKuenteCO
+    container_name: Slave
     environment:
-      POSTGRES_USER: slave
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: KuenteCO
+      POSTGRES_DB: test
     volumes:
       - postgres-replica-data:/var/lib/postgresql/data
     ports:
