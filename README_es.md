@@ -30,7 +30,7 @@ psql -U admin -d test
 ```
 Ejecuta el siguiente comando SQL para crear el usuario de replicación:
 ```sql
-CREATE USER replication REPLICATION LOGIN ENCRYPTED PASSWORD 'example_password';
+CREATE USER root REPLICATION LOGIN ENCRYPTED PASSWORD 'example_password';
 ```
 **Nota:** También puedes realizar este paso desde un cliente gráfico de PostgreSQL.
 
@@ -67,7 +67,7 @@ Para modificar los archivos de configuración de PostgreSQL en el nodo maestro:
    pg_basebackup -D /var/lib/postgresql/data \
      -h Master -p 5432 \
      -X stream -c fast \
-     -U replication -W -R
+     -U replicator -W -R
    ```
 
 ---
